@@ -1,0 +1,20 @@
+{
+  "name": "lospec-cli",
+  "version": "1.0.0",
+  "description": "CLI tool that converts a Lospec palette into a PNG grid",
+  "type": "module",
+  "bin": {
+    "lospec": "./lospec-cli.js"
+  },
+  "keywords": [
+    "lospec",
+    "palette",
+    "pixel-art",
+    "cli",
+    "png"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "pngjs": "^7.0.0"
+  }
+}
