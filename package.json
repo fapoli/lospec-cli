@@ -1,0 +1,36 @@
+{
+  "name": "@fapoli/lospec-cli",
+  "version": "1.0.3",
+  "description": "CLI tool that downloads a Lospec palette and generates a PNG grid",
+  "type": "module",
+  "bin": {
+    "lospec": "./lospec-cli.js"
+  },
+  "files": [
+    "lospec-cli.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "lospec",
+    "palette",
+    "pixel-art",
+    "cli",
+    "png"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fapoli/lospec-cli.git"
+  },
+  "homepage": "https://github.com/fapoli/lospec-cli#readme",
+  "bugs": {
+    "url": "https://github.com/fapoli/lospec-cli/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "pngjs": "^7.0.0"
+  }
+}
