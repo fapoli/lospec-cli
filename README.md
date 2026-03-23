@@ -1,65 +1,86 @@
 # lospec-cli
 
-A small CLI tool that downloads a palette from **Lospec** and generates a PNG palette grid.
+[![npm version](https://img.shields.io/npm/v/@fapoli/lospec-cli)](https://www.npmjs.com/package/@fapoli/lospec-cli)
+[![GitHub repo](https://img.shields.io/badge/github-fapoli%2Flospec--cli-blue?logo=github)](https://github.com/fapoli/lospec-cli)
 
-The tool fetches the palette from:
-
-https://lospec.com/palette-list/{palette-name}
-
-and converts the palette into a PNG grid made of colored cells, useful for 3D modeling.
-
-## Features
-
-- Fetch palettes directly from **Lospec**
-- Generates a **grid PNG palette**
-- Configurable:
-  - number of columns
-  - cell size
-- Simple interactive CLI
+CLI tool that downloads a Lospec palette and generates a PNG grid.
 
 ## Installation
 
-Clone the repository and install dependencies:
-```
-npm install
+### Global install
+
+```bash
+npm install -g @fapoli/lospec-cli
 ```
 
-Dependencies:
+### Run with npx
 
-- pngjs
+```bash
+npx @fapoli/lospec-cli
+```
 
 ## Usage
 
 Run the CLI:
 
-```
-node lospec-cli.js
+```bash
+lospec
 ```
 
 You will be prompted for:
-- Name of the palette (as seen on the lospec url)
-- Columns (default 8)
-- Cell Size (default 32)
 
-Press **Enter** to accept default values.
+- **Palette name** (from Lospec)
+- **Number of columns**
+- **Cell size**
 
-### Example
+The tool will then generate a PNG file named:
+
 ```
-Palette name (eg: endesga-64): comfy57
-Columns [8]: 
-Cell size [32]:
+<palette>.png
 ```
+
+## Example
+
+```bash
+lospec
+```
+
+Input:
+
+```
+Palette name: comfy57
+Columns: 8
+Cell size: 32
+```
+
 Output:
+
 ```
 comfy57.png
 ```
-## Output
 
-The tool generates a PNG grid where:
+## Features
 
-- each color is a square cell
-- default grid width = **8 columns**
-- default cell size = **32×32 pixels**
+- Fetches palettes directly from Lospec
+- Generates clean PNG grids
+- Simple interactive CLI
+
+## Development
+
+Clone the repo:
+
+```bash
+git clone https://github.com/fapoli/lospec-cli.git
+cd lospec-cli
+npm install
+```
+
+Test locally:
+
+```bash
+npm link
+lospec
+```
 
 ## License
 
