@@ -6,6 +6,12 @@
 
 CLI tool that downloads a Lospec palette and generates a PNG grid.
 
+## Why does this exist?
+
+Lospec palettes are distributed as single-row strips, which can be awkward to work with in practice. If you’ve ever had to manually rearrange a palette into a grid just to use it in Blender, Photoshop, or a pixel art tool, you know the friction.
+
+This CLI removes that step by converting palettes into clean, ready-to-use PNG grids.
+
 ## Installation
 
 ### Global install
