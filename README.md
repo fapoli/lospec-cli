@@ -4,7 +4,7 @@
 [![GitHub repo](https://img.shields.io/badge/github-fapoli%2Flospec--cli-blue?logo=github)](https://github.com/fapoli/lospec-cli)
 [![license](https://img.shields.io/badge/license-MIT-blue)](./LICENSE)
 
-CLI tool that downloads a Lospec palette and generates a PNG grid.
+CLI tool that downloads a Lospec palette from Lospec's JSON API and generates a PNG grid.
 
 ## Why does this exist?
 
@@ -68,7 +68,7 @@ comfy57.png
 
 ## Features
 
-- Fetches palettes directly from Lospec
+- Fetches palettes directly from Lospec's JSON API
 - Generates clean PNG grids
 - Simple interactive CLI
 

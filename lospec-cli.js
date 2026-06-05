@@ -12,6 +12,11 @@ function ask(question) {
   return new Promise(resolve => rl.question(question, answer => resolve(answer.trim())));
 }
 
+function normalizeHex(hex) {
+  const trimmed = hex.trim();
+  return trimmed.startsWith("#") ? trimmed.toLowerCase() : `#${trimmed.toLowerCase()}`;
+}
+
 function hexToRgb(hex) {
   return {
     r: parseInt(hex.slice(1, 3), 16),
@@ -35,7 +40,7 @@ async function main() {
   const perRow = Number(columnsInput) || 8;
   const cellSize = Number(cellSizeInput) || 32;
 
-  const url = `https://lospec.com/palette-list/${paletteName}`;
+  const url = `https://lospec.com/palette-list/${paletteName}.json`;
   const response = await fetch(url);
 
   if (!response.ok) {
@@ -43,23 +48,11 @@ async function main() {
     process.exit(1);
   }
 
-  const html = await response.text();
-
-  const paletteMatch = html.match(/<div class="palette">([\s\S]*?)<\/div>\s*<\/div>/i);
-
-  if (!paletteMatch) {
-    console.error("Could not find palette block.");
-    process.exit(1);
-  }
-
-  const paletteHtml = paletteMatch[1];
-
-  const colors = [
-    ...paletteHtml.matchAll(/<div class="color"[^>]*style="[^"]*background:\s*(#[0-9a-fA-F]{6})/gi)
-  ].map(match => match[1].toLowerCase());
+  const palette = await response.json();
+  const colors = Array.isArray(palette.colors) ? palette.colors.map(normalizeHex) : [];
 
   if (!colors.length) {
-    console.error("No colors found in palette block.");
+    console.error("An error occurred while loading the palette.");
     process.exit(1);
   }
 
